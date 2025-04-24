@@ -114,7 +114,7 @@ const ViewStore = () => {
   const handleSubmitRating = async (e) => {
     e.preventDefault();
     setError("");
-    setIsEditing(false); // Reset editing mode after submission
+    setIsEditing(false);
 
     if (!currentUser) {
       setError("Please log in to submit a rating");
@@ -172,7 +172,7 @@ const ViewStore = () => {
       setUserRating(null);
       setRating(0);
       setReviewText("");
-      setIsEditing(false); // Reset editing mode after deletion
+      setIsEditing(false);
     } catch (error) {
       setError("Error deleting rating: " + error.message);
     }
@@ -195,11 +195,7 @@ const ViewStore = () => {
         <div className="store-header">
           <div className="store-image-container">
             {store.image ? (
-              <img
-                src={store.image}
-                alt={store.name}
-                className="store-image"
-              />
+              <img src={store.image} alt={store.name} className="store-image" />
             ) : (
               <div className="store-image-placeholder">
                 <FaStore />
@@ -238,9 +234,10 @@ const ViewStore = () => {
                 <div className="feature-content">
                   <span className="feature-label">Average Rating</span>
                   <div className="feature-value">
-                    {averageRating} 
+                    {averageRating}
                     <span className="total-reviews">
-                      ({reviews.length} {reviews.length === 1 ? 'review' : 'reviews'})
+                      ({reviews.length}{" "}
+                      {reviews.length === 1 ? "review" : "reviews"})
                     </span>
                   </div>
                 </div>
@@ -250,7 +247,9 @@ const ViewStore = () => {
                   <FaFileAlt className="feature-icon" />
                   <div className="feature-content">
                     <span className="feature-label">About</span>
-                    <p className="feature-value description">{store.description}</p>
+                    <p className="feature-value description">
+                      {store.description}
+                    </p>
                   </div>
                 </div>
               )}
@@ -297,7 +296,6 @@ const ViewStore = () => {
           )}
         </div>
 
-        {/* Rating Section */}
         <div className="rating-section">
           <div className="rating-header">
             <h2>Rate this Store</h2>
@@ -319,11 +317,21 @@ const ViewStore = () => {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <FaStar
                     key={star}
-                    className={`star ${star <= (hoverRating || rating) ? "active" : ""}`}
-                    onClick={() => isEditing || !userRating ? setRating(star) : null}
-                    onMouseEnter={() => isEditing || !userRating ? setHoverRating(star) : null}
-                    onMouseLeave={() => isEditing || !userRating ? setHoverRating(0) : null}
-                    style={{ cursor: isEditing || !userRating ? "pointer" : "default" }}
+                    className={`star ${
+                      star <= (hoverRating || rating) ? "active" : ""
+                    }`}
+                    onClick={() =>
+                      isEditing || !userRating ? setRating(star) : null
+                    }
+                    onMouseEnter={() =>
+                      isEditing || !userRating ? setHoverRating(star) : null
+                    }
+                    onMouseLeave={() =>
+                      isEditing || !userRating ? setHoverRating(0) : null
+                    }
+                    style={{
+                      cursor: isEditing || !userRating ? "pointer" : "default",
+                    }}
                   />
                 ))}
               </div>
