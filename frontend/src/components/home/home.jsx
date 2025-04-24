@@ -6,7 +6,6 @@ import homeImage from './home.png';
 const Home = () => {
   return (
     <div className="home-container">
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-left">
@@ -28,7 +27,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="features-section">
         <h2>What Our Platform Offers</h2>
         <div className="features-grid">
@@ -55,7 +53,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section className="how-it-works">
         <h2>How It Works</h2>
         <div className="steps-container">
@@ -77,7 +74,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
       <footer className="footer-section">
         <div className="footer-content">
           <div className="footer-column">
