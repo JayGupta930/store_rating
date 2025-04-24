@@ -1,0 +1,234 @@
+.registration-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f7fa;
+    padding: 1rem;
+}
+
+.registration-box {
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.registration-left {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.registration-right {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    min-height: 600px;
+}
+
+.registration-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.registration-header {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.registration-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.error-message {
+    background: #fff5f5;
+    color: #c53030;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.role-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 5px 0;
+}
+
+.role-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.role-option input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4299e1;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.role-option input[type="radio"]:checked {
+    background-color: #4299e1;
+    border: 2px solid #4299e1;
+}
+
+.role-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.role-option label {
+    font-size: 14px;
+    color: #4a5568;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.form-group {
+    margin-bottom: 0;
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #a0aec0;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle:hover {
+    color: #718096;
+}
+
+.signup-button {
+    width: 100%;
+  padding: 0.875rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 48px; /* Added fixed height */
+  min-height: 48px;
+}
+
+.signup-button:hover:not(:disabled) {
+    background-color: #3182ce;
+}
+
+.signup-button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.signup-button.loading {
+    background-color: #4299e1;
+    cursor: wait;
+    height: 48px; /* Maintain the same height in loading state */
+}
+
+.registration-footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #4a5568;
+}
+
+.login-link {
+    color: #4299e1;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.registration-illustration {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .registration-box {
+        flex-direction: column-reverse;
+    }
+
+    .registration-right {
+        padding: 1rem;
+    }
+
+    .registration-illustration {
+        max-height: 200px;
+    }
+
+    .role-selector {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .role-option {
+        width: 100%;
+    }
+}
