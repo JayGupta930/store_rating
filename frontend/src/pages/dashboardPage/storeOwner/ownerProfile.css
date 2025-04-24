@@ -1,208 +1,209 @@
 .owner-profile-container {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 80px auto 0;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 80px auto 0;
 }
 
 .profile-loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 1.2rem;
-    color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 .owner-profile-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
 .profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 .profile-header h2 {
-    margin: 0;
-    color: #2c3e50;
-    font-size: 1.8rem;
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
 }
 
 .edit-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 6px;
-    background: #3498db;
-    color: white;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #3498db;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
 }
 
 .edit-button:hover {
-    background: #2980b9;
+  background: #2980b9;
 }
 
 .profile-form {
-    display: grid;
-    gap: 2rem;
+  display: grid;
+  gap: 2rem;
 }
 
 .avatar-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .avatar-container {
-    position: relative;
-    width: 120px;
-    height: 120px;
+  position: relative;
+  width: 120px;
+  height: 120px;
 }
 
-.avatar, .avatar-placeholder {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+.avatar,
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatar-placeholder {
-    background: #f0f2f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: #bdc3c7;
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #bdc3c7;
 }
 
 .avatar-upload {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #3498db;
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #3498db;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .avatar-upload:hover {
-    background: #2980b9;
+  background: #2980b9;
 }
 
 .profile-fields {
-    display: grid;
-    gap: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
 }
 
 .form-group {
-    position: relative;
+  position: relative;
 }
 
 .form-group label {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: #f8f9fa;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
 .field-icon {
-    color: #6c757d;
+  color: #6c757d;
 }
 
 .form-group input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 0.5rem;
-    font-size: 1rem;
-    color: #495057;
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #495057;
 }
 
 .form-group input:disabled {
-    color: #6c757d;
-    cursor: not-allowed;
+  color: #6c757d;
+  cursor: not-allowed;
 }
 
 .form-group input:focus {
-    outline: none;
+  outline: none;
 }
 
 .form-actions {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 1rem 0;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .save-button {
-    padding: 0.75rem 1.5rem;
-    background: #2ecc71;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    min-width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    pointer-events: auto;
+  padding: 0.75rem 1.5rem;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  pointer-events: auto;
 }
 
 .save-button:hover {
-    background: #27ae60;
-    transform: translateY(-1px);
+  background: #27ae60;
+  transform: translateY(-1px);
 }
 
 .save-button:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .save-button:disabled {
-    background: #95a5a6;
-    cursor: not-allowed;
-    transform: none;
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 @media (max-width: 768px) {
-    .owner-profile-container {
-        padding: 1rem;
-    }
+  .owner-profile-container {
+    padding: 1rem;
+  }
 
-    .owner-profile-card {
-        padding: 1.5rem;
-    }
+  .owner-profile-card {
+    padding: 1.5rem;
+  }
 
-    .profile-header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-    }
+  .profile-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
 
-    .profile-fields {
-        gap: 1rem;
-    }
+  .profile-fields {
+    gap: 1rem;
+  }
 }

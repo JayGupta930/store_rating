@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./ownerDashboard.css";
 import { supabase } from "../../../services/supabaseClient";
 import AddStore from "./addstore";
@@ -10,7 +10,6 @@ import {
   FaShoppingBag,
   FaRegStar,
 } from "react-icons/fa";
-
 
 const StarRating = ({ rating }) => {
   return (
@@ -70,7 +69,14 @@ const RatingCard = ({ user, formatDate }) => {
   );
 };
 
-const StoreCard = ({ store, isEditing, onEdit, onSave, onCancel, onDelete }) => {
+const StoreCard = ({
+  store,
+  isEditing,
+  onEdit,
+  onSave,
+  onCancel,
+  onDelete,
+}) => {
   const [editedStore, setEditedStore] = useState(store);
 
   const handleChange = (e) => {
@@ -133,7 +139,9 @@ const StoreCard = ({ store, isEditing, onEdit, onSave, onCancel, onDelete }) => 
             <p className="store-email">Email : {store.Email}</p>
             <p className="store-category">Category : {store.Category}</p>
             <p className="store-address">Address : {store.Address}</p>
-            <p className="store-description">Description : {store.Description}</p>
+            <p className="store-description">
+              Description : {store.Description}
+            </p>
           </div>
         )}
         <div className="store-actions">
@@ -212,7 +220,16 @@ const OwnerDashboard = () => {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const { data, error } = await supabase.from("Stores").select("*");
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        if (!userData?.email) {
+          console.error("No user email found");
+          return;
+        }
+
+        const { data, error } = await supabase
+          .from("Stores")
+          .select("*")
+          .eq("Email", userData.email);
 
         if (error) {
           console.error("Error fetching stores:", error);
@@ -269,7 +286,6 @@ const OwnerDashboard = () => {
 
   const handleAddStore = async (newStore) => {
     setIsAddStoreOpen(false);
-    // Add the new store to the local state immediately
     setStores((prevStores) => [...prevStores, newStore]);
   };
 
@@ -283,9 +299,9 @@ const OwnerDashboard = () => {
           Category: updatedStore.Category,
           Address: updatedStore.Address,
           Description: updatedStore.Description,
-          Image_Url: updatedStore.Image_Url
+          Image_Url: updatedStore.Image_Url,
         })
-        .eq('id', updatedStore.id)
+        .eq("id", updatedStore.id)
         .select();
 
       if (error) {
@@ -293,11 +309,12 @@ const OwnerDashboard = () => {
         return;
       }
 
-      // Update the stores list with the edited store
-      setStores(stores.map(store => 
-        store.id === updatedStore.id ? updatedStore : store
-      ));
-      setEditingStore(null); // Close edit mode
+      setStores(
+        stores.map((store) =>
+          store.id === updatedStore.id ? updatedStore : store
+        )
+      );
+      setEditingStore(null);
     } catch (error) {
       console.error("Error:", error);
     }
