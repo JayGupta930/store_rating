@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
-import { FaUsers, FaStore, FaStar, FaUserPlus, FaSync } from 'react-icons/fa';
-import './dashboard.css';
+import React, { useState } from "react";
+import { FaUsers, FaStore, FaStar, FaUserPlus, FaSync } from "react-icons/fa";
+import "./dashboard.css";
 
 const Dashboard = ({ stats }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const sampleActivities = [
     {
-      type: 'store',
-      description: 'New store added: Urban Threads',
-      time: '2 hours ago'
+      type: "store",
+      description: "New store added: Urban Threads",
+      time: "2 hours ago",
     },
     {
-      type: 'user',
-      description: 'New user registered: Jane Smith',
-      time: '4 hours ago'
+      type: "user",
+      description: "New user registered: Jane Smith",
+      time: "4 hours ago",
     },
     {
-      type: 'rating',
-      description: 'New review for Tech Haven (⭐ 4.5)',
-      time: '5 hours ago'
-    }
+      type: "rating",
+      description: "New review for Tech Haven (⭐ 4.5)",
+      time: "5 hours ago",
+    },
   ];
 
   const handleRefresh = () => {
     setIsRefreshing(true);
-    // Add your refresh logic here
     setTimeout(() => {
       setIsRefreshing(false);
     }, 1000);
@@ -65,8 +64,8 @@ const Dashboard = ({ stats }) => {
       <div className="recent-activity">
         <div className="activity-header">
           <h2>Recent Activity</h2>
-          <button 
-            className={`refresh-button ${isRefreshing ? 'refreshing' : ''}`}
+          <button
+            className={`refresh-button ${isRefreshing ? "refreshing" : ""}`}
             onClick={handleRefresh}
             disabled={isRefreshing}
           >
@@ -77,9 +76,9 @@ const Dashboard = ({ stats }) => {
           {sampleActivities.map((activity, index) => (
             <div key={index} className="activity-item">
               <div className="activity-icon">
-                {activity.type === 'user' && <FaUserPlus />}
-                {activity.type === 'store' && <FaStore />}
-                {activity.type === 'rating' && <FaStar />}
+                {activity.type === "user" && <FaUserPlus />}
+                {activity.type === "store" && <FaStore />}
+                {activity.type === "rating" && <FaStar />}
               </div>
               <div className="activity-content">
                 <p>{activity.description}</p>

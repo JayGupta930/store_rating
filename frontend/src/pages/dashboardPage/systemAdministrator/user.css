@@ -58,11 +58,10 @@
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
 }
 
-/* Modern Card Design for Users */
 .users-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;   
+  gap: 24px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 16px;
@@ -199,7 +198,8 @@
   margin-top: auto;
 }
 
-.btn-secondary, .btn-primary {
+.btn-secondary,
+.btn-primary {
   font-size: 16px;
   padding: 10px 16px;
   border-radius: 8px;
@@ -322,12 +322,12 @@
   .users-section {
     padding: 16px;
   }
-  
+
   .users-list {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .filters {
     flex-direction: column;
     gap: 12px;
@@ -338,7 +338,7 @@
   .card-content {
     padding: 20px;
   }
-  
+
   .card-headline {
     font-size: 20px;
   }

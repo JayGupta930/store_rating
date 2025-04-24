@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import './user.css';
+import React, { useState } from "react";
+import "./user.css";
 
 const User = ({ users, filters, handleFilterChange, onAddUser }) => {
   const [showAddUserModal, setShowAddUserModal] = useState(false);
   const [newUser, setNewUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-    address: '',
-    role: 'user'
+    name: "",
+    email: "",
+    password: "",
+    address: "",
+    role: "user",
   });
 
   const handleNewUserChange = (e) => {
     setNewUser({
       ...newUser,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -24,21 +24,24 @@ const User = ({ users, filters, handleFilterChange, onAddUser }) => {
     setShowAddUserModal(false);
   };
 
-  const filteredUsers = users.filter(user => {
+  const filteredUsers = users.filter((user) => {
     return (
       user.name.toLowerCase().includes(filters.name.toLowerCase()) &&
       user.email.toLowerCase().includes(filters.email.toLowerCase()) &&
       user.address.toLowerCase().includes(filters.address.toLowerCase()) &&
-      (filters.role === '' || user.role === filters.role)
+      (filters.role === "" || user.role === filters.role)
     );
   });
 
   // Function to get role display text
   const getRoleDisplay = (role) => {
-    switch(role) {
-      case 'admin': return 'Administrator';
-      case 'store': return 'Store Owner';
-      default: return 'User';
+    switch (role) {
+      case "admin":
+        return "Administrator";
+      case "store":
+        return "Store Owner";
+      default:
+        return "User";
     }
   };
 
@@ -46,10 +49,7 @@ const User = ({ users, filters, handleFilterChange, onAddUser }) => {
     <div className="users-section">
       <div className="section-header">
         <h2>Users Management</h2>
-        <button 
-          className="add-btn"
-          onClick={() => setShowAddUserModal(true)}
-        >
+        <button className="add-btn" onClick={() => setShowAddUserModal(true)}>
           Add New User
         </button>
       </div>
@@ -76,11 +76,7 @@ const User = ({ users, filters, handleFilterChange, onAddUser }) => {
           value={filters.address}
           onChange={handleFilterChange}
         />
-        <select
-          name="role"
-          value={filters.role}
-          onChange={handleFilterChange}
-        >
+        <select name="role" value={filters.role} onChange={handleFilterChange}>
           <option value="">All Roles</option>
           <option value="admin">Admin</option>
           <option value="user">User</option>
@@ -92,29 +88,33 @@ const User = ({ users, filters, handleFilterChange, onAddUser }) => {
         {filteredUsers.length === 0 ? (
           <div className="no-results">No users found matching your filters</div>
         ) : (
-          filteredUsers.map(user => (
+          filteredUsers.map((user) => (
             <div className="modern-card" key={user.id}>
               <div className="card-avatar">
                 {user.name.charAt(0).toUpperCase()}
               </div>
               <div className="card-content">
                 <h2 className="card-headline">{user.name}</h2>
-                <div className="role-tag" data-role={user.role}>{getRoleDisplay(user.role)}</div>
+                <div className="role-tag" data-role={user.role}>
+                  {getRoleDisplay(user.role)}
+                </div>
                 <h3 className="card-subheadline">{user.address}</h3>
-                
+
                 <div className="card-body-text">
                   <div className="user-detail">
                     <span className="detail-label">Email:</span>
                     <span className="detail-value">{user.email}</span>
                   </div>
-                  
+
                   {user.lastLogin && (
                     <div className="user-detail">
                       <span className="detail-label">Last Login:</span>
-                      <span className="detail-value">{new Date(user.lastLogin).toLocaleDateString()}</span>
+                      <span className="detail-value">
+                        {new Date(user.lastLogin).toLocaleDateString()}
+                      </span>
                     </div>
                   )}
-                  
+
                   {user.status && (
                     <div className="user-detail">
                       <span className="detail-label">Status:</span>
@@ -122,7 +122,7 @@ const User = ({ users, filters, handleFilterChange, onAddUser }) => {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="card-actions">
                   <button className="btn-secondary">Edit</button>
                   <button className="btn-primary btn-delete">Delete</button>
@@ -181,9 +181,11 @@ const User = ({ users, filters, handleFilterChange, onAddUser }) => {
                 <option value="store">Store Owner</option>
               </select>
               <div className="modal-actions">
-                <button type="submit" className="submit-btn">Add User</button>
-                <button 
-                  type="button" 
+                <button type="submit" className="submit-btn">
+                  Add User
+                </button>
+                <button
+                  type="button"
                   className="cancel-btn"
                   onClick={() => setShowAddUserModal(false)}
                 >
