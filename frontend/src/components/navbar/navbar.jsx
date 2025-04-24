@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaUserCircle, FaSignOutAlt, FaCog } from 'react-icons/fa';
-import './navbar.css';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaUserCircle, FaSignOutAlt, FaCog } from "react-icons/fa";
+import "./navbar.css";
 
 const ProfileDropdown = ({ userRole, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const userData = JSON.parse(localStorage.getItem('userData'));
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
   const handleEditProfile = () => {
     switch (userRole) {
-      case 'USER':
-        navigate('/userDash/profile');
+      case "USER":
+        navigate("/userDash/profile");
         break;
-      case 'STORE_OWNER':
-        navigate('/ownerDashboard/profile');
+      case "STORE_OWNER":
+        navigate("/ownerDashboard/profile");
         break;
       default:
         break;
@@ -26,7 +26,7 @@ const ProfileDropdown = ({ userRole, onLogout }) => {
     <div className="profile-dropdown">
       <button className="profile-trigger" onClick={() => setIsOpen(!isOpen)}>
         <FaUserCircle className="profile-icon" />
-        <span>{userData?.name || 'User'}</span>
+        <span>{userData?.name || "User"}</span>
       </button>
       {isOpen && (
         <div className="dropdown-menu">
@@ -43,14 +43,14 @@ const ProfileDropdown = ({ userRole, onLogout }) => {
 };
 
 const Navbar = () => {
-  const logoPath = '/assets/store.svg';
+  const logoPath = "/assets/store.svg";
   const location = useLocation();
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
-    const userData = localStorage.getItem('userData');
+    const userData = localStorage.getItem("userData");
     if (userData) {
       setIsLoggedIn(true);
       setUserRole(JSON.parse(userData).role);
@@ -61,11 +61,11 @@ const Navbar = () => {
   }, [location]);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('userData');
+    localStorage.removeItem("user");
+    localStorage.removeItem("userData");
     setIsLoggedIn(false);
     setUserRole(null);
-    navigate('/home');
+    navigate("/home");
   };
 
   const isActive = (path) => location.pathname === path;
@@ -79,17 +79,25 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <ul className="navbar-links">
-            <li className={isActive('/') ? 'active' : ''}><Link to="/">Home</Link></li>
-            {userRole === 'ADMIN' && (
-              <li className={isActive('/systemAdmin') ? 'active' : ''}><Link to="/systemAdmin">Admin</Link></li>
+            <li className={isActive("/") ? "active" : ""}>
+              <Link to="/">Home</Link>
+            </li>
+            {userRole === "ADMIN" && (
+              <li className={isActive("/systemAdmin") ? "active" : ""}>
+                <Link to="/systemAdmin">Admin</Link>
+              </li>
             )}
           </ul>
           {isLoggedIn ? (
             <ProfileDropdown userRole={userRole} onLogout={handleLogout} />
           ) : (
             <div className="auth-buttons">
-              <Link to="/loginPage" className="login-btn">Login</Link>
-              <Link to="/registrationPage" className="signup-btn">Sign Up</Link>
+              <Link to="/loginPage" className="login-btn">
+                Login
+              </Link>
+              <Link to="/registrationPage" className="signup-btn">
+                Sign Up
+              </Link>
             </div>
           )}
         </div>
