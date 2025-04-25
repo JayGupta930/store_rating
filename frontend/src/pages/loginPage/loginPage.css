@@ -128,7 +128,7 @@
 .login-button {
   width: 100%;
   padding: 0.875rem;
-  background-color: #4299e1;
+  background-color: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
@@ -140,12 +140,12 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 48px; /* Added fixed height */
-  min-height: 48px; /* Ensure minimum height */
+  height: 48px; 
+  min-height: 48px; 
 }
 
 .login-button:hover:not(:disabled) {
-  background-color: #3182ce;
+  background-color: #2563eb;
   transform: translateY(-1px);
 }
 
@@ -157,7 +157,7 @@
 .login-button.loading {
   background-color: #4299e1;
   cursor: wait;
-  height: 48px; /* Maintain the same height in loading state */
+  height: 48px; 
 }
 
 .login-footer {
@@ -167,7 +167,7 @@
 }
 
 .signup-link {
-  color: #4299e1;
+  color: #2563eb;
   text-decoration: none;
   font-weight: 500;
 }
