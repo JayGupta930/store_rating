@@ -65,7 +65,7 @@
 }
 
 .navbar-links li a:hover {
-  color: #3498db;
+  color: #2563eb;
 }
 
 .navbar-links li.active a {
@@ -93,7 +93,7 @@
 }
 
 .profile-trigger:hover {
-  color: #3498db;
+  color: #2563eb;
 }
 
 .profile-icon {
