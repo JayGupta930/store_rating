@@ -40,7 +40,7 @@ Follow the steps below to set up the project locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/store-rating-platform.git
+git clone https://github.com/JayGupta930/store-rating-platform.git
 cd store-rating-platform
 
 
